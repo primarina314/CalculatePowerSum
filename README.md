@@ -81,3 +81,11 @@ $I_k={1\over(k+1)}\left((n+1)(-1)^{k+1}I_0+\displaystyle\sum_{i=1}^{n}{\left((n+
 
 위와 같은 recurrence relation 을 바탕으로 dynamic programming 을 이용하면 $I_k$ 의 모든 계수를 계산할 수 있다.
 
+# Optimization
+
+C# 문법에 익숙치 않아 아직 시간/공간적 최적화는 진행하지 못했다.
+
+FFT, deep copy 등을 활용하면 효율적으로 계산될 듯하다
+
+자료형도 int 가 아닌 ulong 으로 바꾸어 더 큰 범위까지 계산되도록 바꿀 필요가 있다.
+
