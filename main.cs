@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
-using Math;
+using MyUtils;
 
 class Test
 {
