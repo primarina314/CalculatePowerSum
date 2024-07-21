@@ -31,10 +31,18 @@ namespace Math
             while(b-- > 0) res *= a--;
             return res;
         }
-        public static int min(int a, int b) { return (a<b) ? a : b; }
-        public static int min(int a, int b, int c) { return (min(a, b)>c) ? c : min(a, b); }
-        public static int max(int a, int b) { return (a>b) ? a : b; }
-        public static int max(int a, int b, int c) { return (max(a, b)<c) ? c : max(a, b); }
+        public static int max(params int[] numbers)
+        {
+            int res = Int32.MinValue;
+            foreach(int number in numbers) res = (res>number) ? res : number;
+            return res;
+        }
+        public static int min(params int[] numbers)
+        {
+            int res = Int32.MaxValue;
+            foreach(int number in numbers) res = (res<number) ? res : number;
+            return res;
+        }
         public static int pow(int a, int b)
         {
             if(b==0) return 1;
