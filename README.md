@@ -1,18 +1,18 @@
 # Calculate the summation of powers
 
-공군기훈단 훈련소에서 동기가 수학적귀납법 없이 자연수 거듭제곱합을 구하는 것에 대해 질문했다.
-
-당시 점심을 먹으러 가면서 머릿속으로 생각하다보니 괜찮은 풀이가 떠올랐고, c# 공부해볼겸 이걸 계산하는 cs 코드를 만들었다.
+This c# code find the polynomial of power sum in the form of fractions. For instance, if input is 2, the result would be '1/3 x^2 + 1/2 x^1 + 1/6 x^0'
 
 # Key idea
 
-1의 제곱부터 n의 제곱까지의 합을 생각해보면 규칙성이 하나 있다.
+Considering the sqaure summation from 1 to n, there's a specific pattern below.
 
 $$1, 4, 9, 16, \cdots$$
 
-더해지는 수들의 간격이 연속된 홀수이다. $n^2-(n-1)^2=2n-1$
+The difference(gap) between the consecutive two sqaures is equal to an odd number.
+As the step goes on, the gap becomes the next odd number.(1,3,5,7,... and so on)
+$n^2-(n-1)^2=2n-1$
 
-이를 이용하여 수를 재정렬하면 다음과 같다.
+Using this, rearrange the gaps like below.
 
 $$\begin{aligned}
 1, 1, 1, 1, &\cdots\\
@@ -22,19 +22,21 @@ $$\begin{aligned}
 \end{aligned}$$
 
 
-같은 열끼리 더하면 처음의 합인 $1, 4, 9, 16, \cdots$ 과 같다.
+Sum among the elements in a same column is equal to the initial one, $1, 4, 9, 16, \cdots$, respectively.
 
-반대로 같은 행끼리 더한다면 최종적인 합은 그대로이지만 식은 달라진다.
+On the constrast, sum among the elements in a same row has different form of expression.
+But the total sum doesn't change(Sum of row sum = Sum of col sum)
 
+
+Let
 $$I=1+4+9+16+\cdots+n^2$$
 
-이라고 하자.
 
-이때 $i$번쨰 행의 합은 다음과 같다.
+Then, $i$th row's sum is below.
 
 $$(n-i+1)(2i-1)$$
 
-이를 이용해 $I$ 를 다시 쓰면 다음과 같다.
+With this, rewrite $I$ below.
 
 $$
 \begin{aligned}
@@ -72,9 +74,9 @@ $$
 
 $$I_k=\displaystyle\sum_{i=1}^{n}{(n-i+1)D_k(i)}$$
 
-$D_k(i)$ 는 binomial coefficients 로 표현
+$D_k(i)$ can be expressed with binomial coefficients
 
-정리하면
+Rearranging the whole expressions below.
 
 $$
 \begin{aligned}
@@ -88,7 +90,7 @@ i-1\\ \end{pmatrix} I_i\right)}\right)
 \end{aligned}
 $$
 
-위와 같은 recurrence relation 을 바탕으로 dynamic programming 을 이용하면 $I_k$ 의 모든 계수를 계산할 수 있다.
+Based on the recurrence relation, the all coefficients of $I_k$ can be calculated with dynamic programming.
 
 # Optimization
 
