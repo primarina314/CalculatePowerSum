@@ -61,7 +61,7 @@ $$I_k=\displaystyle\sum_{i=1}^{n}{i^k}$$
 
 $$D_k(i):=i^k-(i-1)^k$$
 
-다음 나열된 수들의 합과 $I_k$ 는 같다.
+The sum of arranged numbers below is equal to $I_k$.
 
 $$
 \begin{aligned}
